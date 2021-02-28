@@ -9,12 +9,26 @@
 
 如今市面上已有不少端到端测试的方案。阿X的UI Recoder（1.7k star），比较传统的的Mocha+chai+puppeteer，风头正劲的Cypress（27.9k star，X节跳动Data团队使用），基于BDD的Cucumber+Puppeteer（携X度假在用，以后有空再来聊聊这个），比较中庸的jest+puppeteer（X节跳动飞书团队，大部分会携带recorder）以及京X拼购的纯puppeteer方案（吐槽一下，和前面的方案比起来，它更像是半自动化测试）。当然，每个方案都有其优劣，在这里限于篇幅不去一一比较。我使用的的是jest+puppeteer的组合。最大的原因是我之前有一点jest的使用经验，上手时间成本较低从而不会影响功能交付时间。
 
-Puppeteer, 意为操纵傀儡的人
+Puppeteer, 意为操纵傀儡的人，它能够模拟用户对于浏览器的绝大部分行为。作为一个Node.js库，Puppeteer遵循DevTools协议通过高阶API来控制Chrome（或Chromium）。相比于老前辈Selenium或者PhantomJs，它最大的特点是它的DOM操作能完全在内存中进行（V8引擎处理了这些事情从而不用打开浏览器），这也是为什么它被称为无头浏览器的原因。但也正因为此，相比于基于webdriver的Selenium，Puppeteer无法跨浏览器运作（不过对于审核业务来说没差啦）。Puppeteer不仅仅可被用于前端自动化测试，也能用来做爬虫，分析网站性能等。本文意在结合键位配置台这个需求，利用一个篇幅适当的demo，尽可能的展现出Puppeteer在自动化测试方面威力。
+
+回到业务，我这次测试的两个case以及流程是：
+1 用户创建一个新键位包
+ 开启浏览器，登陆admin系统
+ 跳转入页面配置中心，
+ 点击
+2 为该键位包新增一个一级校验过的键位。
+话不多说，先上代码，
 
 
 
 
 
+
+
+
+
+puppeteer 无头浏览器 高阶API DevTools协议 Chrome 相比较Selenium或是PhantomJs,它最大的特点就是它的操作Dom可以完全在内存中进行模拟既在V8引擎中处理而不打开浏览器， Google坐庄
+非webDriver，仅支持Chrome，不跨平台
 
 自动化测试有助于 1 回测 方便包升级 2 鼓励重构，代码设计 质量
 
@@ -30,3 +44,4 @@ Puppeteer, 意为操纵傀儡的人
 对业务提升 培养新人
 
 文末，系统性地说一下测试的好处
+
