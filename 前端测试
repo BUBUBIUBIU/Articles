@@ -15,7 +15,10 @@ Puppeteer, 意为操纵傀儡的人，它能够模拟用户对于浏览器的绝
 1 用户创建一个新键位包
  开启浏览器，登陆admin系统
  跳转入页面配置中心，
- 点击
+ 点击创建新键位包
+ 点击保存，触发前端form表单部分内容必填校验
+ abort 阻挡
+ 
 2 为该键位包新增一个一级校验过的键位。
 话不多说，先上代码，
 
@@ -25,7 +28,7 @@ Puppeteer, 意为操纵傀儡的人，它能够模拟用户对于浏览器的绝
 
 
 
-
+讲一下安装puppeteer
 
 puppeteer 无头浏览器 高阶API DevTools协议 Chrome 相比较Selenium或是PhantomJs,它最大的特点就是它的操作Dom可以完全在内存中进行模拟既在V8引擎中处理而不打开浏览器， Google坐庄
 非webDriver，仅支持Chrome，不跨平台
